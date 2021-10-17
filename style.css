@@ -1,0 +1,73 @@
+body{
+    background-color: #242424;
+    color: azure;
+    font-size: 28px;
+    font-family: 'Inconsolata', monospace;
+    transition-duration: 0.2s;
+}
+
+#bot{
+    text-align: center;
+    font-size: 45spx;
+}
+#container{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    transition-duration: 0.2s;
+}
+
+#keyword{
+    width: 900px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 48px;
+    min-height: 60px;
+}
+#game{
+    float: left;
+    width: 450px;
+    text-align: center;
+    min-height: 280px;
+}
+#alp{
+    float: left;
+    width: 450px;
+    text-align: center;
+    min-height: 280px;
+}
+.litera
+{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid gray;
+    float: left;
+    cursor: pointer;
+    border-radius: 15px;
+    transition-duration: 0.8s;
+}
+.litera:hover
+{
+    background-color: #222222;
+    color: white;
+    border: 3px solid white;
+    transition-duration: 0.2s;
+}
+.reset
+{
+    color: green;
+    cursor: pointer;
+    font-size: 48px;
+    transition-duration: 0.8s;
+}
+.reset:hover
+{
+    color: white;
+    transition-duration: 0.2s;
+}
