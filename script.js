@@ -1,23 +1,23 @@
+
+
 var haslo = "Ala ma kota";
 haslo = haslo.toUpperCase();
 
 var dlugosc = haslo.length;
 var ile_skuch = 0;
 
-var yes = new Audio("./audio/yes.wav")
-var no = new Audio("./audio/no.wav")
-var win = new Audio("./audio/win.mp3")
+var yes = new Audio("./audio/yes.wav");
+var no = new Audio("./audio/no.wav");
+var win = new Audio("./audio/win.mp3");
 
 var haslo1 = "";
 
-for (i=0; i<dlugosc; i++)
-    {
-        if(haslo.charAt(i)==" ") haslo1 = haslo1 + " ";
-        else haslo1 = haslo1 + "-";
-    }
+for (i = 0; i < dlugosc; i++) {
+    if (haslo.charAt(i) == " ") haslo1 = haslo1 + " ";
+    else haslo1 = haslo1 + "-";
+}
 
-function wypisz_haslo()
-{
+function wypisz_haslo() {
     document.getElementById("keyword").innerHTML = haslo1;
 }
 
@@ -61,71 +61,62 @@ litery[32] = "Z";
 litery[33] = "Ż";
 litery[34] = "Ź";
 
-function start()
-{
-    var tresc_diva ="";
-    
-    for(i=0; i<=34; i++)
-        {
-            var element = "lit" + i;
-            tresc_diva = tresc_diva + '<div class="litera" onclick="sprawdz('+i+')" id="'+element+'">'+litery[i]+'</div>';
-            if ((i+1) % 7 ==0) tresc_diva = tresc_diva + '<div style="clear:both;"></div>'
-        }
-    
+function start() {
+    var tresc_diva = "";
+
+    for (i = 0; i <= 34; i++) {
+        var element = "lit" + i;
+        tresc_diva = tresc_diva + '<div class="litera" onclick="sprawdz(' + i + ')" id="' + element + '">' + litery[i] + '</div>';
+        if ((i + 1) % 7 == 0) tresc_diva = tresc_diva + '<div style="clear:both;"></div>'
+    }
+
     document.getElementById("alp").innerHTML = tresc_diva;
-    
+
     wypisz_haslo();
 }
 
-String.prototype.ustawZnak = function(miejsce, znak)
-{
-    if(miejsce>this.length - 1) return this.toString();
-    else return this.substr(0,miejsce) + znak + this.substr(miejsce+1);
+String.prototype.ustawZnak = function (miejsce, znak) {
+    if (miejsce > this.length - 1) return this.toString();
+    else return this.substr(0, miejsce) + znak + this.substr(miejsce + 1);
 }
 
 
-function sprawdz(nr)
-{
-    
-    var trafiona = false;
-    
-    for(i=0; i<dlugosc; i++)
-        {
-            if (haslo.charAt(i) == litery[nr])
-                {
-                    haslo1 = haslo1.ustawZnak(i,litery[nr]);
-                    trafiona = true;
-                }
-        }
-    
-    if(trafiona == true)
-        {
-            yes.play();
-            var element = "lit" + nr;
-            document.getElementById(element).style.background="#003300";
-            document.getElementById(element).style.color="#00C000";
-            document.getElementById(element).style.border="3px solid #00C000";
-            document.getElementById(element).style.cursor="default";
-            
-                wypisz_haslo();
-        }
-    else
-        {   
-            no.play();
-            var element = "lit" + nr;
-            document.getElementById(element).style.background="#330000";
-            document.getElementById(element).style.color="#C00000";
-            document.getElementById(element).style.border="3px solid #C00000";
-            document.getElementById(element).style.cursor="default";
-            document.getElementById(element).setAttribute("onlick",";");
-            
-            ile_skuch++;
-            var obraz = "img/s"+ ile_skuch + ".jpg";
-            document.getElementById("game").innerHTML = '<img src="'+obraz+'"alt="" />';
-        }
-        if (haslo == haslo1)
-	document.getElementById("alp").innerHTML  = "Tak jest! Podano prawidłowe hasło: "+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>'
+function sprawdz(nr) {
 
-    if (ile_skuch>=9)
-        document.getElementById("alp").innerHTML  = "Przegrana! Podano prawidłowe hasło: "+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
+    var trafiona = false;
+
+    for (i = 0; i < dlugosc; i++) {
+        if (haslo.charAt(i) == litery[nr]) {
+            haslo1 = haslo1.ustawZnak(i, litery[nr]);
+            trafiona = true;
+        }
+    }
+
+    if (trafiona == true) {
+        yes.play();
+        var element = "lit" + nr;
+        document.getElementById(element).style.background = "#003300";
+        document.getElementById(element).style.color = "#00C000";
+        document.getElementById(element).style.border = "3px solid #00C000";
+        document.getElementById(element).style.cursor = "default";
+
+        wypisz_haslo();
+    } else {
+        no.play();
+        var element = "lit" + nr;
+        document.getElementById(element).style.background = "#330000";
+        document.getElementById(element).style.color = "#C00000";
+        document.getElementById(element).style.border = "3px solid #C00000";
+        document.getElementById(element).style.cursor = "default";
+        document.getElementById(element).setAttribute("onlick", ";");
+
+        ile_skuch++;
+        var obraz = "img/s" + ile_skuch + ".jpg";
+        document.getElementById("game").innerHTML = '<img src="' + obraz + '"alt="" />';
+    }
+    if (haslo == haslo1)
+        document.getElementById("alp").innerHTML = "Tak jest! Podano prawidłowe hasło: " + haslo + '<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>'
+
+    if (ile_skuch >= 9)
+        document.getElementById("alp").innerHTML = "Przegrana! Podano prawidłowe hasło: " + haslo + '<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
 }

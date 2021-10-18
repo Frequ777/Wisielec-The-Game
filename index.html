@@ -4,27 +4,32 @@
     <meta charset="utf-8">
     <title> Gra w wisielca!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
-    <style> @import url("style.css") </style>
-    <script src="script.js"></script></head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <style>
+        @import url("style.css")
+    </style>
+    <script src="script.js"></script>
+</head>
+
 <body id="body">
     <div id="logo"></div>
     <div id="bot">Odgadnij hasło!</div>
     <div id="container">
         <div id="keyword">s</div>
         <div id="game">
-         <img src="img/s0.jpg" alt="">
+            <img src="img/s0.jpg" alt="">
         </div>
         <div id="alp"></div>
         <div style="clear:both;"></div>
     </div>
     <form>
-    <input type="text" id="has">
-    <input type="submit" value="Zmien Haslo" onclick="bierzhaslo()">
+        <input type="text" id="has">
     </form>
+    <button onclick="bierzhaslo()">Zmień hasło</button>
     <script>
-        function bierzhaslo()
-        var haslo = document.getElementById("has").value;</script>
-    </body>
-</html>
+        function bierzhaslo() {
+            var haslo = document.getElementById("has").value;
+        }
+    </script>
+</body></html>
